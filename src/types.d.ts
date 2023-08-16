@@ -6,14 +6,17 @@ type HasName = {
   name: string;
 }
 
+type Entity = HasKey & HasName;
+
 type GeoLocation = [lat: number, lng: number];
 
-type User = HasKey & HasName & {
+type User = Entity & {
 
 }
 
-type Property = HasKey & HasName & {
+type Property = Entity & {
   geolocation: GeoLocation;
+  // TODO add tracts
 }
 
 type InventoryItem = {
@@ -23,7 +26,7 @@ type InventoryItem = {
 
 type Inventory = Array<InventoryItem>;
 
-type Tract = HasKey & HasName & {
+type Tract = Entity & {
   area: number; // square meters
   geolocation: GeoLocation;
   bank: string;
@@ -31,7 +34,7 @@ type Tract = HasKey & HasName & {
   inventory: Inventory;
 }
 
-type Bank = HasKey & HasName & {
+type Bank = Entity & {
 
 }
 
