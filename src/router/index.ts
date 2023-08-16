@@ -13,6 +13,12 @@ export const propertyList: RouteRecordRaw = {
   component: () => import(/* webpackChunkName: "propertyList" */ '@/views/PropertyList.vue'),
 };
 
+export const search: RouteRecordRaw = {
+  path: '/search',
+  name: 'Search',
+  component: () => import(/* webpackChunkName: "search" */ '@/views/Search.vue'),
+};
+
 export const tractList: RouteRecordRaw = {
   path: '/tract',
   name: 'Tracts',
@@ -39,6 +45,7 @@ export const sell: RouteRecordRaw = {
 
 const routes: Array<RouteRecordRaw> = [
   start,
+  search,
   propertyList,
   tractList,
   buy,

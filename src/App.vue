@@ -19,10 +19,7 @@
       </v-container>
     </v-main>
     <v-navigation-drawer v-model="statusOpen" permanent location="right">
-      <v-card v-for="item in status">
-        <v-card-title>{{ item.label }}</v-card-title>
-        <v-card-subtitle>{{ item.value }}</v-card-subtitle>
-      </v-card>
+      <v-card v-for="item in status" :title="item.label" :subtitle="item.value" class="mb-6" />
     </v-navigation-drawer>
   </v-app>
 </template>
@@ -33,7 +30,7 @@ import { ref } from 'vue';
 import { RouteRecordRaw, RouterView } from 'vue-router';
 import { VApp, VNavigationDrawer, VList, VListItem, VAppBar } from 'vuetify/lib/components/index.mjs';
 import { useAppStore } from './store/app';
-import { start, propertyList, tractList, buy, sell } from './router';
+import { start, search, propertyList, tractList, buy, sell } from './router';
 
 const app = useAppStore();
 const navOpen = ref(true);
@@ -50,6 +47,7 @@ watchEffect(() => {
   ];
 
   if (app.user) {
+    items.push({ icon: 'mdi-magnify', title: 'Search', link: search });
     items.push({ icon: 'mdi-map-marker', title: 'Properties', link: propertyList });
   }
 
