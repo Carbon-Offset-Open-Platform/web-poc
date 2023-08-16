@@ -3,6 +3,7 @@
     <v-card-title>{{ tract.name }}</v-card-title>
     <v-card-text>
       <v-list>
+        <v-list-item title="ID"> {{ tract.key }} </v-list-item>
         <v-list-item title="Area"> {{ tract.area }} </v-list-item>
         <v-list-item title="Bank"> {{ bank.name }} ({{ bank.key }}) </v-list-item>
         <v-list-item title="Geolocation"> {{ tract.geolocation[0] }} x {{ tract.geolocation[1] }} </v-list-item>
@@ -24,7 +25,7 @@
 import service from '@/backend/service';
 import { useAppStore } from '@/store/app';
 
-const props = defineProps(['propertyKey', 'tractKey'])
+const props = defineProps(['tractKey'])
 const app = useAppStore();
 const tract = service.tractDetails(props.tractKey);
 const bank = service.bankDetails(tract.bank);

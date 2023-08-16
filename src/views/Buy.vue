@@ -32,7 +32,7 @@ import { useAppStore } from '@/store/app';
 import { useRouter } from 'vue-router';
 import { tractList } from '@/router'
 import { ref } from 'vue';
-import TractDetails from '@/components/TractDetails.vue';
+import TractDetailsCard from '@/components/TractDetailsCard.vue';
 import { watchEffect } from 'vue';
 
 const app = useAppStore();
