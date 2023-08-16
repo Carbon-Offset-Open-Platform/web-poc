@@ -1,4 +1,3 @@
-// Composables
 import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router'
 
 export const start: RouteRecordRaw = {

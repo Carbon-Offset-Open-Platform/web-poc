@@ -4,7 +4,7 @@
       <v-list dense>
         <v-list-item v-for="(item, index) in items" :to="item.link" :key="index" link :title="item.title">
           <template v-slot:prepend>
-            <v-icon :icon="item.icon"></v-icon>
+            <v-icon :icon="item.icon" :title="item.link.name"></v-icon>
           </template>
         </v-list-item>
       </v-list>

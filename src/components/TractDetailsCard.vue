@@ -23,13 +23,9 @@
 
 <script setup lang="ts">
 import service from '@/backend/service';
-import { useAppStore } from '@/store/app';
 
 const props = defineProps(['tractKey'])
-const app = useAppStore();
 const tract = service.tractDetails(props.tractKey);
 const bank = service.bankDetails(tract.bank);
-// console.log(app.bought);
-// const inventory = app.bought.get(tract.key);
 
 </script>

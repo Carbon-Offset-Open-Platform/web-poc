@@ -16,7 +16,7 @@
         TODO {{ property.key }}
       </v-card-text>
       <v-card-actions>
-        <v-btn @click="app.property = property">
+        <v-btn @click="select(property)">
           Select
         </v-btn>
       </v-card-actions>
@@ -33,4 +33,10 @@ import { start } from '@/router'
 const app = useAppStore();
 if (!app.user) useRouter().push(start);
 const properties = service.listProperties();
+
+function select(property: Property) {
+  app.property = property;
+  // TODO check if current tract is part of this property or set it so undefined
+  // if (app.tract && property.)
+}
 </script>

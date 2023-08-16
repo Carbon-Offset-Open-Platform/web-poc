@@ -31,8 +31,6 @@ import { useAppStore } from '@/store/app';
 import { useRouter } from 'vue-router';
 import { tractList } from '@/router'
 import { ref } from 'vue';
-import TractDetailsCard from '@/components/TractDetailsCard.vue';
-import { watchEffect } from 'vue';
 
 const app = useAppStore();
 if (!app.tract) useRouter().push(tractList);

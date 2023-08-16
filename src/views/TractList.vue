@@ -13,7 +13,8 @@
         {{ tract.name }}
       </v-card-title>
       <v-card-text>
-        TODO {{ tract.key }}
+        <!-- TODO add tract details - maybe use details card and add an "actions" slot -->
+        ID {{ tract.key }}
       </v-card-text>
       <v-card-actions>
         <v-btn @click="app.tract = tract">
