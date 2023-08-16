@@ -2,6 +2,7 @@ import dummy from "./dummy";
 
 // TODO make all async
 export type Service = {
+  findEntity: (id: string) => Entity | undefined
   listProperties: () => Array<Property>
   listTracts: (propertyKey: string, userKey?: string) => Array<Tract>
   listBanks: () => Array<Bank>

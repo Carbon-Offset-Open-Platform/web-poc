@@ -1,6 +1,5 @@
 import { useDummyStore } from "@/store/dummy";
 import { Service } from "./service";
-import { stripVTControlCharacters } from "util";
 
 const store = useDummyStore();
 
@@ -106,8 +105,19 @@ function sell(tractKey: string, userKey: string, amount: number) {
   return true;
 }
 
+function findFirst(id: string) {
+  console.log('findFirst', id);
+  for (const source of [store.tracts, store.properties, store.banks]) {
+    const entity = source.find(entity => entity.key == id);
+    console.log('find', id, 'in', source, entity);
+    if (entity) return entity;
+  }
+  console.log('x');
+  return undefined;
+}
 
 const service: Service = {
+  findEntity: (id) => findFirst(id),
   listProperties: () => store.properties,
   listTracts: () => store.tracts,
   listBanks: () => store.banks,
