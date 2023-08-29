@@ -1,7 +1,8 @@
 FROM node:lts-alpine
 
-# install simple http server for serving static content
-RUN npm install -g http-server
+# Install tools useful for development and debugging
+RUN apk add --update curl iproute2 && \
+    rm -rf /var/cache/apk/*
 
 # make the 'app' folder the current working directory
 WORKDIR /app
@@ -16,7 +17,5 @@ RUN npm install
 COPY . .
 
 # build app for production with minification
-RUN npm run build
-
-EXPOSE 8080
-CMD [ "http-server", "dist" ]
+EXPOSE 3000
+CMD ["npm", "run", "dev", "--", "--host"]
