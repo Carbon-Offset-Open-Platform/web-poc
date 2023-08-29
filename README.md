@@ -60,6 +60,6 @@ Run the application using podman and mount `src/` to the pod to edit files in re
 podman run -e CHOKIDAR_USEPOLLING=true  -v ${PWD}/src/:/app/src/ -p 3000:3000 ${USER}/web-poc
 ```
 
-** Important:** On any file changed, the application will get the update automatically.
+**Important:** On any file changed, the application will get the update automatically.
 
 In case you need to run a command in the Container o see logs, use the terminal available in the podman dashboard.
